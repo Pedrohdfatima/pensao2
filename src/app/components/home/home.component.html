@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+    <!-- <style>
+        body {
+            background-image: url('fundo cad.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            min-height: 100vh;
+        }
+    </style> -->
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Criar Conta</h2>
+    <form id="form">
+      <input type="email" id="email" placeholder="E-mail" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <input type="password" id="confirmaSenha" placeholder="Confirmar Senha" required>
+
+      <div class="requisitos">
+        Sua senha deve atender aos seguintes requisitos de segurança:
+        <ul>
+          <li>Ter no mínimo 8 caracteres.</li>
+          <li>Conter pelo menos uma letra maiúscula.</li>
+          <li>Incluir no mínimo um número.</li>
+<li>Incluir no mínimo um caractere especial (como &#64;, #, $, %, &amp;, *, etc.).</li>        </ul>
+      </div>
+
+      <div class="error" id="mensagemErro"></div>
+      <button type="submit" class="btn">Continuar</button>
+    </form>
+    
+    <a href="cadastrar-conta.html" class="button">Não tenho Conta</a>
+  </div>
+
+  <script>
+    // Seu código JavaScript permanece o mesmo
+    const form = document.getElementById("form");
+    const senha = document.getElementById("senha");
+    const confirmaSenha = document.getElementById("confirmaSenha");
+    const mensagemErro = document.getElementById("mensagemErro");
+
+    function validarSenha(s) {
+      const temMaiuscula = /[A-Z]/.test(s);
+      const temNumero = /\d/.test(s);
+      const temEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(s);
+      return s.length >= 8 && temMaiuscula && temNumero && temEspecial;
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const s = senha.value;
+      const cs = confirmaSenha.value;
+
+      if (!validarSenha(s)) {
+        mensagemErro.textContent = "A senha não atende aos requisitos.";
+        return;
+      }
+
+      if (s !== cs) {
+        mensagemErro.textContent = "As senhas não coincidem.";
+        return;
+      }
+
+      mensagemErro.textContent = "";
+      alert("Conta criada com sucesso!");
+    });
+  </script>
+
+</body>
+</html>
