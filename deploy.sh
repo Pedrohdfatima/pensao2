@@ -10,7 +10,7 @@ echo "🔧 Limpando build anterior..."
 rm -rf $OUTPUT_DIR
 
 echo "⚙️  Gerando build com baseHref /$REPO_NAME/ ..."
-ng build --output-path $OUTPUT_DIR --base-href "/$REPO_NAME/"
+ng build --output-path $OUTPUT_DIR --base-href "/pensao/"
 
 echo "✅ Build finalizado. Pronto para GitHub Pages em /$OUTPUT_DIR"
 
