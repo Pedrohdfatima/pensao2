@@ -1,6 +1,9 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { LoginComponent } from './app/components/login/login.component'; // ajuste o caminho se necessário
+import { provideHttpClient } from '@angular/common/http'; // opcional, mas comum
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(LoginComponent, {
+  providers: [
+    provideHttpClient(), // ou outros providers que você usa
+  ]
+});
