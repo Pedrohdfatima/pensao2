@@ -1,11 +1,4 @@
-/* :host {
-  display: block;
-  height: 100vh;
-  background-image: url('/src/assets/img/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-} */
+/* 
 
 html, body {
   height: 100%;
@@ -17,14 +10,14 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* width: 100vw;
-  height: 100vh; */
+  width: 100vw;
+  height: 100vh;
   background-image: url('src/assets/img/fundo_log.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -196,4 +189,4 @@ input[type="password"] {
   .social-login button img {
     width: 16px;
   }
-}
+} */
