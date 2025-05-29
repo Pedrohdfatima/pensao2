@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; // <-- IMPORTANTE
 
 @Component({
   selector: 'app-login',
-  standalone: true,  // <<< Isso é obrigatório para poder importar em outro standalone component
+  standalone: true,
+  imports: [RouterModule], // <-- AQUI
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  // sua lógica aqui
-}
+export class LoginComponent {}

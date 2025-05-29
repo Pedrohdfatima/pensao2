@@ -1,9 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { LoginComponent } from './app/components/login/login.component'; // ajuste o caminho se necessário
-import { provideHttpClient } from '@angular/common/http'; // opcional, mas comum
+import { provideRouter, Routes } from '@angular/router';
+import { AppComponent } from './app/app.component';
+import { LoginComponent } from './app/components/login/login.component';
+import { CadastroComponent } from './app/components/cadastro/cadastro.component';
 
-bootstrapApplication(LoginComponent, {
-  providers: [
-    provideHttpClient(), // ou outros providers que você usa
-  ]
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
+];
+
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes)],
 });
