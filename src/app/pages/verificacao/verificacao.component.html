@@ -1,0 +1,23 @@
+<div class="verificacao-container">
+  <div class="verificacao-background"></div>
+  <div class="verificacao-box">
+    <h2>Verificação de Conta</h2>
+    <p class="instruction-text">
+      Enviamos um código para a ativação da sua conta.
+      Por favor verifique o seu e-mail <span class="email-placeholder">xxxxxx&#64;xxxx.com</span>
+    </p>
+
+    <div class="code-inputs">
+      <input type="text" maxlength="1" class="code-input" />
+      <input type="text" maxlength="1" class="code-input" />
+      <input type="text" maxlength="1" class="code-input" />
+      <input type="text" maxlength="1" class="code-input" />
+    </div>
+
+    <button class="verify-button" (click)="verificar()">Verificar</button>
+
+    <p class="resend-text">
+      Não recebeu o código? <a href="#" class="resend-link">Reenviar</a>
+    </p>
+  </div>
+</div>

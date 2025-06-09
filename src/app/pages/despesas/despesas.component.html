@@ -1,0 +1,60 @@
+<div class="despesas-container">
+  <div class="form-section">
+    <h2>Adicionar Despesa</h2>
+    <div class="card">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" class="input-field">
+        <option value="" disabled selected>Escolha o tipo de despesa</option>
+        <option value="educacao">Educação</option>
+        <option value="alimentacao">Alimentação</option>
+        <option value="vestuario">Vestuário</option>
+        <option value="saude">Saúde</option>
+        <option value="lazer">Lazer</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <label for="valor">Valor</label>
+      <div class="valor-input">
+        <span class="currency-symbol">R$</span>
+        <input type="text" id="valor" class="input-field" placeholder="0,00">
+      </div>
+
+      <button class="save-button">Salvar</button>
+    </div>
+  </div>
+
+  <div class="summary-section">
+    <div class="card">
+        <h2>Despesas</h2>
+        <div class="despesa-item">
+          <div>
+            <p class="item-title">Educação</p>
+            <p class="item-date">10/04/2025</p>
+          </div>
+          <p class="item-amount">R$350,00</p>
+        </div>
+        <div class="despesa-item">
+          <div>
+            <p class="item-title">Alimentação</p>
+            <p class="item-date">06/04/2025</p>
+          </div>
+          <p class="item-amount">R$500,00</p>
+        </div>
+        <div class="despesa-item">
+          <div>
+            <p class="item-title">Vestuário</p>
+            <p class="item-date">03/04/2025</p>
+          </div>
+          <p class="item-amount">R$250,00</p>
+        </div>
+        <hr>
+        <div class="total-mes">
+          <p>Total do mês</p>
+          <p class="total-amount">R$1.100,00</p>
+        </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <p>© 2025 Guardian – Todos os direitos reservados.</p>
+</footer>

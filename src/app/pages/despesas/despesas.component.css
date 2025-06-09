@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  background-color: #fdfaf6;
+  padding-bottom: 60px; /* Space for the footer */
+}
+
+.despesas-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-section, .summary-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #4a6c6f; /* Teal background for the form card */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.summary-section .card {
+    background-color: #ffffff; /* White background for the summary card */
+    color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.input-field, .valor-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.valor-input {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.valor-input .currency-symbol {
+  color: #555;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.valor-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.save-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #c58940; /* Brown button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #b37830;
+}
+
+.despesa-item, .total-mes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.item-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-date {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.item-amount, .total-amount {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.total-amount {
+    font-size: 18px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #eee;
+  margin: 20px 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}

@@ -1,0 +1,120 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.verificacao-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verificacao-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/img/fundo_verificacao.jpg'); /* Imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.9); /* Efeito de desfoque e escurecimento */
+  z-index: 1;
+}
+
+.verificacao-box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semitransparente */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.instruction-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.email-placeholder {
+  font-weight: bold;
+  color: #333;
+}
+
+.code-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.code-input {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #c58940;
+  box-shadow: 0 0 0 3px rgba(197, 137, 64, 0.2);
+}
+
+.verify-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #c58940;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.verify-button:hover {
+  background-color: #b37830;
+}
+
+.resend-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.resend-link {
+  color: #c58940;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.resend-link:hover {
+  text-decoration: underline;
+}

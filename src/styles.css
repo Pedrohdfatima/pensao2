@@ -1,18 +1,59 @@
-/* Reset e estilos básicos para todo o app */
+/* src/styles.css */
+
+/* Reset e estilos de fonte globais */
 html, body {
   height: 100%;
   margin: 0;
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif; /* Usando uma fonte mais moderna como padrão */
+  background-color: #FFFBF5; /* Cor de fundo principal dos seus layouts */
 }
 
-body {
+/* A MÁGICA ACONTECE AQUI:
+  Em vez de aplicar flex no 'body', aplicamos no componente raiz do Angular ('app-root').
+  Isso cria a estrutura principal da página.
+*/
+app-root {
   display: flex;
-  justify-content: center; /* centraliza horizontalmente */
-  align-items: center;     /* centraliza verticalmente */
-  min-height: 100vh;
-  position: relative;
+  flex-direction: column; /* Empilha os filhos (navbar, main, footer) verticalmente */
+  min-height: 100vh;      /* Garante que o app ocupe no mínimo a altura da tela, mas PODE CRESCER */
 }
 
-/* Navbar - se você usa navbar em várias páginas */
+/* ESTE É O SEGREDO PARA O RODAPÉ:
+  Fazemos a área de conteúdo principal (o <main>) crescer e ocupar todo o espaço
+  vazio, empurrando o rodapé (<app-footer>) para o fundo.
+*/
+main.main-content {
+  flex: 1; /* Faz o elemento 'main' expandir */
+  width: 100%;
+}
+
+/* --- Seus outros estilos globais (mantidos e organizados) --- */
+
+/* Estilos de Link Globais */
+a {
+  color: #4A6C6F; /* Usando a cor verde dos seus layouts */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #334e50;
+}
+
+/* Classe de erro que pode ser usada em várias partes */
+.error {
+  color: #d93025; /* Um tom de vermelho mais moderno */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* NOTA SOBRE A NAVBAR:
+  O estilo abaixo estava no seu arquivo. É melhor manter os estilos da navbar
+  dentro do seu próprio arquivo ('navbar.component.css') para evitar conflitos,
+  mas mantive aqui caso você precise dele globalmente por algum motivo.
+*/
 .navbar {
   background-color: #597471;
   display: flex;
@@ -24,7 +65,6 @@ body {
 .navbar a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s;
@@ -34,33 +74,16 @@ body {
   background-color: #405653;
 }
 
-/* Links globais */
-a {
-  color: #333;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #000;
-}
-
-/* Classe de erro que pode ser usada em várias partes */
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
 
 /* Ajustes globais para responsividade base */
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
+    font-size: 15px; /* Ajustado para melhor legibilidade em tablets */
   }
 }
 
 @media (max-width: 480px) {
   body {
-    font-size: 12px;
+    font-size: 14px; /* Ajustado para melhor legibilidade em celulares */
   }
 }

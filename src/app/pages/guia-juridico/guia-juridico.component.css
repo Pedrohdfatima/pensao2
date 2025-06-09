@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  background-color: #fdfaf6;
+}
+
+.guia-juridico-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.header img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0 0 10px 10px;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+.header p {
+  font-size: 20px;
+  max-width: 600px;
+}
+
+.content {
+  padding: 40px 20px;
+}
+
+.content h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.topic-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+}
+
+.topic-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.card-content p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.card-content a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #c58940;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-content a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+}

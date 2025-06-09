@@ -1,0 +1,42 @@
+<div class="cadastro-container">
+  <div class="cadastro-background"></div>
+  <div class="cadastro-box">
+    <h2 class="form-title">Cadastrar Filho</h2>
+
+    <form class="cadastro-form">
+      <div class="form-group full-width">
+        <label for="nome">Nome Completo do Filho</label>
+        <input type="text" id="nome" name="nome">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nascimento">Data de Nascimento</label>
+          <input type="date" id="nascimento" name="nascimento">
+        </div>
+        <div class="form-group">
+          <label for="genero">Gênero</label>
+          <select id="genero" name="genero">
+            <option value="" disabled selected></option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+          <label for="escola">Escola (Opcional)</label>
+          <input type="text" id="escola" name="escola">
+      </div>
+
+       <div class="form-group full-width">
+          <label for="saude">Informações de Saúde (Opcional)</label>
+          <textarea id="saude" name="saude" rows="3" placeholder="Alergias, medicamentos, etc."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="continue-button">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>

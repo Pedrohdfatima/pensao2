@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  background-color: #fdfaf6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 40px;
+}
+.calendario-container { max-width: 900px; margin: 0 auto; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.nav-button { background-color: #e9a96e; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+.nav-button:hover { background-color: #d4945a; }
+.month-nav { display: flex; align-items: center; gap: 20px; }
+.month-nav h2 { font-size: 24px; color: #333; margin: 0; }
+.month-nav button { background: none; border: none; font-size: 24px; cursor: pointer; color: #555; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+.day-header { font-weight: bold; text-align: center; padding-bottom: 10px; color: #555; }
+
+/* --- CORREÇÃO E ESTILOS DOS BOTÕES DO CALENDÁRIO --- */
+.day-button {
+  border: 2px solid transparent; /* Adiciona uma borda para manter o alinhamento quando a classe .today for aplicada */
+  background-color: #4a6c6f;
+  color: white;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-family: inherit;
+}
+.day-button:hover { background-color: #5a8a8e; }
+.empty-day { background: none; border: none; cursor: default; }
+
+/* CORREÇÃO DO DESTAQUE: Garante que a classe .today sobrescreva os estilos do .day-button */
+.day-button.today {
+  background-color: #c58940;
+  border: 2px solid #a16a2a; /* Borda mais escura para melhor visibilidade */
+  color: #fff;
+}
+
+/* --- ESTILOS DA SEÇÃO DE LEMBRETES --- */
+.lembretes { margin-top: 40px; padding: 25px; background-color: #e0f7fa; border-radius: 10px; }
+.lembretes h3 { margin-top: 0; margin-bottom: 20px; font-size: 22px; color: #004d40; text-align: center; }
+.lembrete-item { display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 15px; }
+.lembrete-info { flex-grow: 1; }
+.lembrete-info p { margin: 0; color: #333; }
+.lembrete-date strong { color: #004d40; }
+.no-lembretes { text-align: center; padding: 20px; color: #666; font-style: italic; }
+
+/* ESTILO DO NOVO BOTÃO DE EXCLUSÃO */
+.delete-button {
+  background-color: #f44336; /* Vermelho */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 15px; /* Espaçamento do texto do lembrete */
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.delete-button:hover { background-color: #d32f2f; }

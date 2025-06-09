@@ -1,0 +1,4 @@
+.main-content {
+  /* min-height: calc(100vh - 200px); Garante que o conteúdo ocupe a maior parte da tela */
+  padding: 0 20px;
+}
