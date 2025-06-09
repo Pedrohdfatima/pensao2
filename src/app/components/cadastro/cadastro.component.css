@@ -1,86 +1,102 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh; /* garantir 100% da viewport */
-  width: 100vw;
-  /* background-color: rgba(255, 255, 255, 0.7); */
+:host {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 99;
+  height: 100vh;
+   background-image: url('/assets/img/fundo_cad.jpeg');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.form-container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
+.cadastro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 400px; /* limite máximo de largura */
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  box-sizing: border-box; /* garante que padding não aumente largura */
-  margin: 0 15px; /* para um pouco de espaço lateral em telas pequenas */
+  padding: 20px;
+
 }
 
-
-h1 {
+.cadastro-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 20px;
 }
 
-input {
-  width: 100%;
-  padding: 7px 0;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.cadastro-card h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
 }
 
-.password-rules {
-  font-size: 0.9em;
-  margin-top: 10px;
-  background-color: #f8f8f8;
-  padding: 10px;
-  border-radius: 8px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.password-rules ul {
-  margin-left: 20px;
-  list-style: disc;
+.input-group {
+  text-align: left;
 }
 
-button {
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-group input {
   width: 100%;
   padding: 12px;
-  background-color: #d67c35;
-  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
   font-size: 16px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #c58940; /* Cor de destaque do app */
+  box-shadow: 0 0 0 2px rgba(197, 137, 64, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #c58940;
+  color: white;
   border: none;
-  border-radius: 8px;
-  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 15px; /* Espaço antes do link de login */
 }
 
-button:hover {
-  background-color: #b65f1c;
+.submit-btn:hover {
+  background-color: #b37830;
 }
 
-
-#back {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-image: url('src/assets/img/fundo_cad.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;
+.login-link {
+  margin-top: 25px;
+  font-size: 14px;
 }
 
+.login-link a {
+  color: #c58940;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 480px) {
   .form-container {

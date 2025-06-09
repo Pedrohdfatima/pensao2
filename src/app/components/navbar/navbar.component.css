@@ -1,0 +1,62 @@
+/* Estilos gerais da Navbar (mantidos) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #4a6c6f;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  height: 70px; /* Definindo uma altura fixa */
+  box-sizing: border-box;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom-color: #fdfaf6;
+}
+
+/* --- CORREÇÃO DO EFEITO DO PERFIL --- */
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 1. Estilizando o link (o contêiner da imagem) */
+.profile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;  /* Tamanho do círculo de fundo */
+  height: 50px;
+  border-radius: 50%; /* Deixa o link perfeitamente redondo */
+  background-color: transparent; /* Fundo transparente por padrão */
+  transition: all 0.3s ease-in-out; /* Animação suave para todas as propriedades */
+}
+
+/* 2. O efeito de hover que você pediu */
+.profile-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo que aparece ao passar o mouse */
+  transform: scale(1.15); /* Aumenta o tamanho do círculo em 15% */
+}
+
+/* 3. Ajustando a imagem para caber dentro do link */
+.profile-link img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* A borda pode ser removida da imagem, já que o fundo do link fará o efeito */
+}
