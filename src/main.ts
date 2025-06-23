@@ -1,13 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes';
 
-// REMOVA qualquer linha que tente importar 'NavComponent' ou 'NavbarComponent' daqui.
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes)
-    // Nenhum outro provedor necessário por enquanto
-  ]
-}).catch(err => console.error(err));
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));

@@ -1,5 +1,5 @@
 {
-  "name": "pensao",
+  "name": "web-guardians",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:pensao": "node dist/pensao/server/server.mjs"
+    "serve:ssr:webGuardians": "node dist/web-guardians/server/server.mjs"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^19.2.13",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
@@ -21,8 +22,10 @@
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.13",
     "express": "^4.18.2",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
