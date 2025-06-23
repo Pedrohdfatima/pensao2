@@ -7,6 +7,7 @@ import { AutenticacaoService } from '../../services/autenticacao.service';
 
 @Component({
   selector: 'app-cadastrar',
+   standalone: true,
   imports: [FormularioComponent],
   templateUrl: './cadastrar.component.html',
   styleUrl: './cadastrar.component.css'

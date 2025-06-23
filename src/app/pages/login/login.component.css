@@ -1,0 +1,146 @@
+.login-background {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/src/assets/img/fundo_log.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #a66d2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #8b5826;
+}
+
+.social-login {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-login button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.gov {
+  background-color: #1976d2;
+  color: white;
+}
+
+.extra-links {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.extra-links a {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px 15px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  .btn,
+  .social-login button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 20px 10px;
+    margin: 10px;
+    box-shadow: none;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 90%;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .social-login button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .social-login button {
+    font-size: 0.8rem;
+    padding: 8px 5px;
+  }
+
+  .social-login button img {
+    width: 16px;
+  }
+}

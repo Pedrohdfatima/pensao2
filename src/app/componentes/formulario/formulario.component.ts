@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
+  standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'

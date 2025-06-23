@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editar',
+   standalone: true,
   imports: [FormularioComponent, CommonModule],
   templateUrl: './editar.component.html',
   styleUrl: './editar.component.css'
