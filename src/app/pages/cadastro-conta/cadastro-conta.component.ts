@@ -1,23 +1,35 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router'; // 1. Importe o Router
+import { Router, RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro-conta',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './cadastro-conta.component.html',
   styleUrls: ['./cadastro-conta.component.css']
 })
 export class CadastroContaComponent {
+  perfilForm: FormGroup;
 
-  // 2. Injete o Router
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private toastr: ToastrService
+  ) {
+    this.perfilForm = this.fb.group({
+      responsavel: [''],
+      nascimento: [''],
+      visitas: [''],
+      pagamento: ['']
+    });
+  }
 
-  // 3. Crie a função de navegação
-  irParaCadastroFilho(): void {
-    // Lógica para salvar os dados da conta viria aqui.
-    // Após o sucesso, navega.
+  proximaEtapa(): void {
+    console.log("SIMULANDO: Salvando dados do perfil...", this.perfilForm.value);
+    this.toastr.info('Dados do perfil salvos (simulado).');
     this.router.navigate(['/cadastro-filho']);
   }
 }

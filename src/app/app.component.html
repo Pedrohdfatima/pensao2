@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<!-- A Navbar só aparece se showLayout for true -->
+<app-navbar *ngIf="showLayout"></app-navbar>
+
+<main>
+  <!-- O conteúdo de cada página (home, perfil, etc.) será carregado aqui -->
+  <router-outlet></router-outlet>
+</main>
+
+<!-- O Footer só aparece se showLayout for true -->
+<app-footer *ngIf="showLayout"></app-footer>

@@ -1,33 +1,74 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { UsuarioCriacaoDto } from '../models/usuarioCriacaoDto';
-import { UsuarioModel } from '../models/usuarioModel';
-import { Response } from '../models/responseModel'
-import { Observable } from 'rxjs';
-import { UsuarioLoginDto } from '../models/usuarioLoginDto';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
+import { UsuarioCriacaoDto } from '../models/usuarioCriacaoDto';
+import { UsuarioLoginDto } from '../models/usuarioLoginDto';
+import { Response } from '../models/responseModel';
+import { UsuarioModel } from '../models/usuarioModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
+  
+  constructor(private router: Router) { }
 
-  ApiUrl = environment.UrlApi;
+  // Finge que registra um usuário e sempre retorna sucesso
+  RegistrarUsuario(usuario: UsuarioCriacaoDto): Observable<Response<UsuarioModel>> {
+    console.log('SIMULANDO CADASTRO (Etapa 1):', usuario);
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-  RegistrarUsuario(usuario: UsuarioCriacaoDto) : Observable<Response<UsuarioModel>>{
-      return this.http.post<Response<UsuarioModel>>(`${this.ApiUrl}/Login/Register`, usuario)
+    const usuarioFalso: UsuarioModel = {
+      id: Math.floor(Math.random() * 1000),
+      usuario: usuario.usuario,
+      nome: usuario.nome,
+      sobrenome: usuario.sobrenome,
+      email: usuario.email,
+      token: 'token-falso-gerado-no-cadastro-12345',
+      dataCriacao: new Date(),
+      dataAlteracao: new Date(),
+      senhaHash: new Uint8Array(),
+      senhaSalt: new Uint8Array()
+    };
+    
+    const respostaFalsa: Response<UsuarioModel> = {
+      dados: usuarioFalso,
+      mensagem: "Etapa 1 concluída (simulado).",
+      status: true
+    };
+    
+    return of(respostaFalsa).pipe(delay(500)); // Pequeno delay para parecer real
   }
 
-  LoginUsuario(usuarioLogin: UsuarioLoginDto) : Observable<Response<UsuarioModel>>{
-      return this.http.post<Response<UsuarioModel>>(`${this.ApiUrl}/Login/login`, usuarioLogin)
+  // Finge que loga um usuário e sempre retorna sucesso
+  LoginUsuario(usuarioLogin: UsuarioLoginDto): Observable<Response<UsuarioModel>> {
+    console.log('SIMULANDO LOGIN:', usuarioLogin);
+
+    const usuarioFalsoLogado: UsuarioModel = {
+      id: 1,
+      usuario: 'usuario_logado',
+      nome: 'Usuário',
+      sobrenome: 'Logado',
+      email: usuarioLogin.email,
+      token: 'token-falso-gerado-no-login-abcdef',
+      dataCriacao: new Date(),
+      dataAlteracao: new Date(),
+      senhaHash: new Uint8Array(),
+      senhaSalt: new Uint8Array()
+    };
+
+    const respostaFalsa: Response<UsuarioModel> = {
+      dados: usuarioFalsoLogado,
+      mensagem: "Login bem-sucedido (simulado).",
+      status: true
+    };
+
+    return of(respostaFalsa).pipe(delay(500));
   }
 
-  Sair(){
-    localStorage.removeItem('token')
-    this.router.navigate(['/login'])
+  Sair(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
-
 }

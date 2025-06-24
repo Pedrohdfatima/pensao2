@@ -1,28 +1,36 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router'; // 1. Importe o Router
+import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-filho',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './cadastro-filho.component.html',
   styleUrls: ['./cadastro-filho.component.css']
 })
 export class CadastroFilhoComponent {
+  filhoForm: FormGroup;
 
-  // 2. Injete o Router no construtor
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private toastr: ToastrService,
+    private fb: FormBuilder
+  ) {
+    this.filhoForm = this.fb.group({
+      nome: [''],
+      nascimento: [''],
+      genero: [''],
+      escola: [''],
+      saude: ['']
+    });
+  }
 
-  /**
-   * 3. Crie a função para salvar os dados e navegar para a home.
-   */
-  salvarEIrParaHome(): void {
-    // Aqui, futuramente, você adicionaria a lógica para salvar
-    // os dados do filho no banco de dados.
-
-    // Após salvar, navega para a página inicial.
-    console.log('Navegando para a home...');
-    this.router.navigate(['/home']);
+  finalizarCadastro(): void {
+    console.log("SIMULANDO: Salvando dados do filho...", this.filhoForm.value);
+    this.toastr.success('Cadastro concluído com sucesso! Você já pode fazer o login.');
+    this.router.navigate(['/login']);
   }
 }

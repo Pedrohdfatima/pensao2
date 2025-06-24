@@ -1,41 +1,36 @@
 <div class="cadastro-container">
   <div class="cadastro-background"></div>
   <div class="cadastro-box">
-    <h2 class="form-title">Cadastrar Filho</h2>
-
-    <form class="cadastro-form">
+    <h2 class="form-title">Detalhes do Filho(a) (Etapa 3/3)</h2>
+    <form [formGroup]="filhoForm" (ngSubmit)="finalizarCadastro()" class="cadastro-form">
       <div class="form-group full-width">
-        <label for="nome">Nome Completo do Filho</label>
-        <input type="text" id="nome" name="nome">
+        <label for="nome">Nome Completo do Filho(a)</label>
+        <input type="text" id="nome" formControlName="nome">
       </div>
-
       <div class="form-row">
         <div class="form-group">
           <label for="nascimento">Data de Nascimento</label>
-          <input type="date" id="nascimento" name="nascimento">
+          <input type="date" id="nascimento" formControlName="nascimento">
         </div>
         <div class="form-group">
           <label for="genero">Gênero</label>
-          <select id="genero" name="genero">
-            <option value="" disabled selected></option>
+          <select id="genero" formControlName="genero">
+            <option value="" disabled selected>Selecione...</option>
             <option value="masculino">Masculino</option>
             <option value="feminino">Feminino</option>
           </select>
         </div>
       </div>
-
       <div class="form-group full-width">
           <label for="escola">Escola (Opcional)</label>
-          <input type="text" id="escola" name="escola">
+          <input type="text" id="escola" formControlName="escola">
       </div>
-
        <div class="form-group full-width">
           <label for="saude">Informações de Saúde (Opcional)</label>
-          <textarea id="saude" name="saude" rows="3" placeholder="Alergias, medicamentos, etc."></textarea>
+          <textarea id="saude" formControlName="saude" rows="3" placeholder="Alergias, medicamentos, etc."></textarea>
       </div>
-
       <div class="form-actions">
-        <button type="button" class="continue-button" (click)="salvarEIrParaHome()">Salvar</button>
+        <button type="submit" class="continue-button">Finalizar Cadastro</button>
       </div>
     </form>
   </div>

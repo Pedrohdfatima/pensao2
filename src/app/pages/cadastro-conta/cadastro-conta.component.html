@@ -1,55 +1,35 @@
 <div class="cadastro-container">
   <div class="cadastro-background"></div>
   <div class="cadastro-box">
-    <h2 class="form-title">Cadastro</h2>
-
-    <form class="cadastro-form">
+    <h2 class="form-title">Detalhes do Perfil (Etapa 2/3)</h2>
+    <form [formGroup]="perfilForm" (ngSubmit)="proximaEtapa()" class="cadastro-form">
       <div class="form-row">
         <div class="form-group">
-          <label for="nome">Nome Completo</label>
-          <input type="text" id="nome" name="nome">
+          <label for="nascimento">Sua Data de Nascimento</label>
+          <input type="date" id="nascimento" formControlName="nascimento">
         </div>
         <div class="form-group">
-          <label for="nascimento">Data de Nascimento</label>
-          <input type="date" id="nascimento" name="nascimento">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="genero">Gênero</label>
-          <select id="genero" name="genero">
-            <option value="" disabled selected></option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="outro">Outro</option>
-            <option value="nao-informar">Prefiro não informar</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="responsavel">Tipo de Responsável</label>
-          <select id="responsavel" name="responsavel">
-            <option value="" disabled selected></option>
+          <label for="responsavel">Você é o</label>
+          <select id="responsavel" formControlName="responsavel">
+            <option value="" disabled selected>Selecione...</option>
             <option value="pai">Pai</option>
             <option value="mae">Mãe</option>
             <option value="outro">Outro</option>
           </select>
         </div>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="visitas">Período das Visitas</label>
-          <input type="text" id="visitas" name="visitas">
+          <label for="visitas">Como funciona o período das visitas?</label>
+          <input type="text" id="visitas" formControlName="visitas">
         </div>
         <div class="form-group">
-          <label for="pagamento">Dia de Pagamento da Pensão</label>
-          <input type="number" id="pagamento" name="pagamento" min="1" max="31">
+          <label for="pagamento">Qual o dia de pagamento da pensão?</label>
+          <input type="number" id="pagamento" formControlName="pagamento" min="1" max="31">
         </div>
       </div>
-
       <div class="form-actions">
-        <button type="button" class="continue-button" (click)="irParaCadastroFilho()">Continuar</button>
+        <button type="submit" class="continue-button">Avançar para Cadastro do Filho</button>
       </div>
     </form>
   </div>
