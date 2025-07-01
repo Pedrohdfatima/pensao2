@@ -1,7 +1,6 @@
-export interface UsuarioEdicaoDto{
-    id: number,
-    usuario: string,
-    nome: string,
-    sobrenome: string,
-    email: string,
+export interface UsuarioEdicaoDto {
+  id: number;
+  usuario: string;
+  sobrenome: string;
+  email: string;
 }

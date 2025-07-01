@@ -1,59 +1,42 @@
-import { Component, EventEmitter, Input, input, OnInit, Output } from '@angular/core';
-import { UsuarioCriacaoDto } from '../../models/usuarioCriacaoDto';
-import { UsuarioService } from '../../services/usuario.service';
-import { UsuarioEdicaoDto } from '../../models/usuarioEdicaoDto';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
-import { NOMEM } from 'dns';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UsuarioCriacaoDto } from 'src/app/models/usuarioCriacaoDto';
+import { UsuarioEdicaoDto } from 'src/app/models/usuarioEdicaoDto';
+import { RouterLink } from '@angular/router'; // 1. IMPORTAR RouterLink
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink], // 2. ADICIONAR RouterLink AQUI
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent implements OnInit{
-  @Input() btnAcao!:string;
-  @Input() descTitulo!:string;
-  @Input() dadosUsuario:UsuarioCriacaoDto | UsuarioEdicaoDto | null =  null;
-  @Output() onSubmit = new EventEmitter();
+export class FormularioComponent implements OnInit {
+  @Input() dadosUsuario: UsuarioCriacaoDto | UsuarioEdicaoDto | null = null;
+  @Input() btnAcao: string = 'Cadastrar';
+  @Input() btnTitulo: string = 'Cadastrar Usuário'; // A propriedade correta é 'btnTitulo'
+  @Output() onSubmit = new EventEmitter<UsuarioCriacaoDto | UsuarioEdicaoDto>();
 
   usuarioForm!: FormGroup;
 
   ngOnInit(): void {
-
-      const isCadastro = this.btnAcao === 'Cadastrar';
-
-
-      this.usuarioForm = new FormGroup({
-        id: new FormControl(this.dadosUsuario && 'id' in this.dadosUsuario ? this.dadosUsuario.id : 0),
-        nome: new FormControl(this.dadosUsuario?.nome ?? '', [Validators.required]),
-        sobrenome: new FormControl(this.dadosUsuario?.sobrenome ?? '', [Validators.required]),
-        email: new FormControl(this.dadosUsuario?.email ?? '', [Validators.required, Validators.email]),
-        usuario: new FormControl(this.dadosUsuario?.usuario ?? '', [Validators.required]),
-        senha: new FormControl(this.dadosUsuario && 'senha' in this.dadosUsuario ? this.dadosUsuario.senha : '', 
-          isCadastro ? [Validators.required] : []),
-        confirmaSenha: new FormControl(this.dadosUsuario && 'confirmaSenha' in this.dadosUsuario ? this.dadosUsuario.confirmaSenha : '', 
-          isCadastro ? [Validators.required] : [])
-      })
-
+    const id = this.dadosUsuario ? (this.dadosUsuario as UsuarioEdicaoDto).id : 0;
+    this.usuarioForm = new FormGroup({
+      id: new FormControl(id),
+      usuario: new FormControl(this.dadosUsuario?.usuario ?? '', [Validators.required]),
+      sobrenome: new FormControl(this.dadosUsuario?.sobrenome ?? '', [Validators.required]),
+      email: new FormControl(this.dadosUsuario?.email ?? '', [Validators.required, Validators.email]),
+      // Campos de senha são opcionais na edição
+      senha: new FormControl('', this.dadosUsuario ? [] : [Validators.required]),
+      confirmaSenha: new FormControl('', this.dadosUsuario ? [] : [Validators.required])
+    });
   }
 
   submit(): void {
-    
-    if (this.usuarioForm.valid){
-
-      if (this.dadosUsuario && (this.dadosUsuario as UsuarioEdicaoDto).id){
-          this.onSubmit.emit(this.usuarioForm.value as UsuarioEdicaoDto)
-      }else {
-          this.onSubmit.emit(this.usuarioForm.value as UsuarioCriacaoDto)
-      }
-
-    }else {
-      this.usuarioForm.markAllAsTouched();
+    // Garante que o form é válido antes de emitir
+    if (this.usuarioForm.valid) {
+      this.onSubmit.emit(this.usuarioForm.value);
     }
-
   }
 }

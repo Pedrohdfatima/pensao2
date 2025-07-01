@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../services/usuario.service';
-import { ActivatedRoute, RouterModule} from '@angular/router';
-import { UsuarioModel } from '../../models/usuarioModel';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { UsuarioModel } from 'src/app/models/usuarioModel';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Response } from 'src/app/models/responseModel';
 
 @Component({
   selector: 'app-detalhes',
-   standalone: true,
-  imports: [RouterModule, CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, DatePipe],
   templateUrl: './detalhes.component.html',
-  styleUrl: './detalhes.component.css'
+  styleUrls: ['./detalhes.component.css']
 })
-export class DetalhesComponent implements OnInit{
+export class DetalhesComponent implements OnInit {
+  usuario?: UsuarioModel;
 
-  usuario!: UsuarioModel;
+  constructor(
+    private usuarioService: UsuarioService,
+    private route: ActivatedRoute
+  ) {}
 
-  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute){
-
-  }
   ngOnInit(): void {
-    
-      const id = Number(this.route.snapshot.paramMap.get(`id`));
-
-      this.usuarioService.BuscarUsuarioPorId(id).subscribe(response => {
-        console.log(response.dados);
-        this.usuario = response.dados
-      })
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    // Corrigido para 'getUsuarioById' (camelCase)
+    this.usuarioService.getUsuarioById(id).subscribe((response: Response<UsuarioModel>) => {
+      if (response.dados) {
+        this.usuario = response.dados;
+      }
+    });
   }
 }

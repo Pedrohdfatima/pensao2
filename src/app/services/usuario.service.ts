@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { UsuarioModel } from '../models/usuarioModel';
 import { Response } from '../models/responseModel';
+import { UsuarioModel } from '../models/usuarioModel';
 import { UsuarioEdicaoDto } from '../models/usuarioEdicaoDto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  private apiUrl = `${environment.UrlApi}/Usuario`;
 
-  apiUrl = environment.UrlApi;
+  constructor(private http: HttpClient) { }
 
-  constructor(private http : HttpClient) { }
-
-  BuscarUsuarios() : Observable<Response<UsuarioModel[]>> {
-      return this.http.get<Response<UsuarioModel[]>>(`${this.apiUrl}/Usuario`)
+  getUsuarios(): Observable<Response<UsuarioModel[]>> {
+    return this.http.get<Response<UsuarioModel[]>>(this.apiUrl);
   }
 
-  RemoverUsuarios(id: number) : Observable<Response<UsuarioModel>> {
-      return this.http.delete<Response<UsuarioModel>>(`${this.apiUrl}/Usuario/${id}`)
+  getUsuarioById(id: number): Observable<Response<UsuarioModel>> {
+    return this.http.get<Response<UsuarioModel>>(`${this.apiUrl}/${id}`);
   }
 
-  BuscarUsuarioPorId(id: number) : Observable<Response<UsuarioModel>>    {
-      return this.http.get<Response<UsuarioModel>>(`${this.apiUrl}/Usuario/${id}`)
+  updateUsuario(id: number, usuarioEdicao: UsuarioEdicaoDto): Observable<Response<UsuarioModel>> {
+    return this.http.put<Response<UsuarioModel>>(`${this.apiUrl}/editarUsuario/${id}`, usuarioEdicao);
   }
 
-  EditarUsuario(usuario: UsuarioEdicaoDto) : Observable<Response<UsuarioModel>> {
-      return this.http.put<Response<UsuarioModel>>(`${this.apiUrl}/Usuario`,usuario);
+  inativarUsuario(id: number): Observable<Response<UsuarioModel>> {
+    return this.http.put<Response<UsuarioModel>>(`${this.apiUrl}/inativarUsuario/${id}`, {});
   }
 }

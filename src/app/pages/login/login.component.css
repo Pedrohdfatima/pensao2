@@ -1,146 +1,97 @@
-.login-background {
-  height: 100vh;
-  width: 100vw;
-  background-image: url('/assets/img/fundo_log.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.container-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  height: 100vh;
+  background-image: url('/assets/img/fundo_log.jpeg');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-container {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 30px 20px;
-  border-radius: 16px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
-  max-height: 90vh;
-}
-
-.form-container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-input[type="email"],
-input[type="password"] {
-  width: 70%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+  background: white;
+  padding: 2rem 2.5rem;
   border-radius: 8px;
-  font-size: 16px;
-}
-
-.btn {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding: 12px;
-  background-color: #a66d2f;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.btn:hover {
-  background-color: #8b5826;
-}
-
-.social-login {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.social-login button {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.google {
-  background-color: white;
-  color: #333;
-  border: 1px solid #ccc;
-}
-
-.gov {
-  background-color: #1976d2;
-  color: white;
-}
-
-.extra-links {
+  max-width: 400px;
   text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
 }
 
-.extra-links a {
+h2 {
+  margin-bottom: 0.5rem;
   color: #333;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .form-container {
-    width: 90%;
-    max-width: 400px;
-    padding: 20px 15px;
-  }
-
-  input[type="email"],
-  input[type="password"] {
-    width: 80%;
-    font-size: 14px;
-  }
-
-  .btn,
-  .social-login button {
-    font-size: 14px;
-    padding: 10px;
-  }
+p {
+  color: #666;
+  margin-bottom: 2rem;
 }
 
-@media (max-width: 480px) {
-  .form-container {
-    max-width: 100%;
-    border-radius: 0;
-    padding: 20px 10px;
-    margin: 10px;
-    box-shadow: none;
-  }
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
 
-  input[type="email"],
-  input[type="password"] {
-    width: 90%;
-    padding: 8px;
-    font-size: 0.9rem;
-  }
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
 
-  .btn,
-  .social-login button {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
 
-  .social-login button {
-    font-size: 0.8rem;
-    padding: 8px 5px;
-  }
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
 
-  .social-login button img {
-    width: 16px;
-  }
+button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #a0c7e4;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+.cadastro-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.cadastro-link span {
+  margin-right: 0.5rem;
+}
+
+.cadastro-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cadastro-link a:hover {
+  text-decoration: underline;
 }
